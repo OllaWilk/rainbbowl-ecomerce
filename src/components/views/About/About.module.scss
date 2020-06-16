@@ -1,0 +1,33 @@
+@import '../../../styles/settings.scss';
+
+.root {
+
+    .abaut {
+          @media (max-width: $tablet-breakpoint) {
+            justify-content: center;
+          }
+          @media (max-width: $mobile-breakpoint) {
+            justify-content: center;
+          }
+
+        .aboutImgContainer {
+            position: relative;
+            cursor: pointer;
+            &::before {
+                content: '';
+                position: absolute;
+                top: -1.5rem;
+                left: 1.7rem;
+                width: 100%;
+                height: 100%;
+                outline: 0.5rem solid $orange;
+                transition: all 1s linear;
+            }
+        }
+
+        .aboutImgContainer:hover:before{
+            top: 0;
+            left: 0;
+        }
+    }
+}

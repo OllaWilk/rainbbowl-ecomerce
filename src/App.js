@@ -6,6 +6,9 @@ import { CssBaseline } from '@material-ui/core';
 
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Homepage } from './components/views/Homepage/Homepage';
+import { About } from './components/views/About/About';
+import { Contact } from './components/views/Contact/Contact';
+import { NotFound } from './components/views/NotFound/NotFound';
 
 import './styles/bootstrap.scss';
 import './styles/global.scss';
@@ -26,6 +29,9 @@ function App() {
           <MainLayout>
             <Switch>
               <Route exact path='/' component={Homepage} />
+              <Route exact path='/about' component={About} />
+              <Route exact path='/contact' component={Contact} />
+              <Route path='*' component={NotFound} />
             </Switch>
           </MainLayout>
         </ThemeProvider>
