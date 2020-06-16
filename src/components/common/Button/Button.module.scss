@@ -1,0 +1,13 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    .btnAbaut {
+        color: $darkrey ;
+        border-color:  $darkrey ;
+        &:hover, &:active {
+            color: $white;
+            background-color: $darkrey;
+            border-color: $darkrey ;
+        }
+    }
+}

@@ -1,0 +1,16 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    .title {
+        font-size: $font-size-header;
+        font-weight: $font-weight-bold;
+    }
+
+    .titleDominant {
+        color: $orange;
+        font-size: 5rem;
+        font-weight: 600;
+        font-family: $text-logo;
+        margin: 0 0 0 20px;
+    }
+}
