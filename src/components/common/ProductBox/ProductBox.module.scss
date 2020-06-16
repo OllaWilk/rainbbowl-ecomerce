@@ -1,4 +1,66 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+
+    .singleItem {
+        transition: all 0.3 linear;
+        margin-bottom: 60px;
+        padding: 2px ;
+        &:hover {
+            box-shadow: 0 10px 15px $darkrey;
+        }
+
+        .imgContainer {
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+            &:hover {
+                .storeImg {
+                    transform: scale(1.2);
+                }
+
+                .storeItemIcon {
+                    transform: translate(0, 0);
+                }
+            }
+
+            .storeImg {
+                transition: all 1s ease-in-out;
+                width: 350px;
+                height: 400px;
+                object-fit: cover;
+            }
+
+            .storeItemIcon {
+                display: flex;
+                justify-content: space-between;
+                position: absolute;
+                bottom: 0;
+                right: 0;
+                padding: 0.7rem;
+                background: $orange;
+                border-top-left-radius: 1rem;
+                font-size: 30px;
+                color: $white;
+                transition: all 1s ease-in-out;
+                transform: translate(100%, 100%);
+                &:hover {
+                    background-color: $white;
+                    color: $orange;
+                }
+            }
+        }
+
+        .cardBody {
+            padding: 40px 25px;
+            .iconHart {
+                font-size: 25px;
+                cursor: pointer;
+
+                :hover {
+                    color: $orange;
+                }
+            }
+        }
+    }
+}

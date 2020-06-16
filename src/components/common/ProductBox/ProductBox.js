@@ -7,26 +7,37 @@ import clsx from 'clsx';
 // import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
 
 import styles from './ProductBox.module.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faHeart, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
 
-const Component = ({ className }) => (
+const Component = ({ className, title, images, price }) => (
   <div className={clsx(className, styles.root)}>
-    <div className={styles.image}>
-      image
-    </div>
-
-    <div className={styles.title}>
-      title
-    </div>
-
-    <div className={styles.price}>
-      price
+    <div className={`card ${styles.singleItem}`} >
+      <div className={styles.imgContainer}>
+        <Link  to={`/`}>
+          <img src={ images } alt='sweet1' className={`${styles.storeImg} card-img-top align-items-stretch`} />
+        </Link>
+        <span className={styles.storeItemIcon }>
+          <FontAwesomeIcon icon={faShoppingCart} />
+        </span>
+      </div>
+      <div className={`${styles.cardBody} card-body  `}>
+        <div className='card-text d-flex justify-content-between align-items-cente '>
+          <FontAwesomeIcon className={styles.iconHart} icon={faHeart} />
+          <h5 className={ styles.itemTitle }>{ title }</h5>
+          <h5 className='store-item-value'><strong>$ {price} </strong></h5>
+        </div>
+      </div>
     </div>
   </div>
 );
 
 Component.propTypes = {
-  children: PropTypes.node,
   className: PropTypes.string,
+  title: PropTypes.string,
+  images: PropTypes.array,
+  price: PropTypes.number,
 };
 
 // const mapStateToProps = state => ({

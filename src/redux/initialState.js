@@ -2,7 +2,7 @@ export const initialState = {
   products: {
     data: [
       {
-        id: 1,
+        id: '1',
         title: 'Watermelon Lolipop',
         description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
         images: '/img/watermelonLollipop.jpg' ,
@@ -12,7 +12,7 @@ export const initialState = {
         inCart: false,
       },
       {
-        id: 2,
+        id: '2',
         title: 'Hard Candy Mix',
         description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
         images: '/img/hart.jpg',
@@ -22,7 +22,7 @@ export const initialState = {
         inCart: true,
       },
       {
-        id: 3,
+        id: '3',
         title: 'Rainbbow jelly',
         description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
         images: '/img/rainbowJelly2.jpg',
@@ -32,7 +32,7 @@ export const initialState = {
         inCart: false,
       },
       {
-        id: 4,
+        id: '4',
         title: 'Strawberry Kisses',
         description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
         images: '/img/colaJelly.jpg',
@@ -42,7 +42,7 @@ export const initialState = {
         inCart: false,
       },
       {
-        id: 5,
+        id: '5',
         title: 'Chewwing Gum',
         description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
         images: '/img/HartCandy.jpg',
@@ -52,7 +52,7 @@ export const initialState = {
         inCart: false,
       },
       {
-        id: 6,
+        id: '6',
         title: 'Mint hard candy',
         description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
         images: '/img/mintOnPlate.jpg',
@@ -62,7 +62,7 @@ export const initialState = {
         inCart: false,
       },
       {
-        id: 7,
+        id: '7',
         title: 'Hart Candy',
         description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
         images: '/img/chocolateLolipop.jpg',
@@ -72,7 +72,7 @@ export const initialState = {
         inCart: false,
       },
       {
-        id: 8,
+        id: '8',
         title: 'Coca-cola jelly',
         description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
         images: '/img/frutmix.jpg',
@@ -82,10 +82,10 @@ export const initialState = {
         inCart: false,
       },
       {
-        id: 9,
+        id: '9',
         title: 'Mint hard candy',
         description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
-        images: '/img/mail.ajpg',
+        images: '/img/mail.jpg',
         imgCart: '/img/mix.jpg',
         flavour: 'traditional',
         price: 17,

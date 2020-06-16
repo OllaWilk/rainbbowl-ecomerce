@@ -15,7 +15,6 @@ const Component = ({ className, products }) => {
   return (
     <div className={clsx(className, styles.root)}>
       <div className='container py-5 '>
-        {/* Title  */}
         <div className='row '>
           <div className='col-10 mx-auto col-sm-6  '>
             <div className='d-flex align-items-center justify-content-center'>
@@ -23,7 +22,6 @@ const Component = ({ className, products }) => {
             </div>
           </div>
         </div>
-        {/*  Title End */}
         <div className='container py-5 '>
           <div  className='row justify-content-center '>
             <div className={`${styles.wrapper}`}>
