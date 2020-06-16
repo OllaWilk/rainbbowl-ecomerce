@@ -10,9 +10,10 @@ import styles from './MainLayout.module.scss';
 import { Header } from '../Header/Header';
 
 
-const Component = ({ className }) => (
+const Component = ({ className, children }) => (
   <div className={clsx(className, styles.root)}>
     <Header />
+    { children }
   </div>
 );
 
