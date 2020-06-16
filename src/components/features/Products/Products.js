@@ -3,36 +3,58 @@ import PropTypes from 'prop-types';
 
 import clsx from 'clsx';
 
-// import { connect } from 'react-redux';
-// import { reduxSelector, reduxActionCreator } from '../../../redux/exampleRedux.js';
+import { connect } from 'react-redux';
+import { getAll } from '../../../redux/productsRedux.js';
 
 import styles from './Products.module.scss';
 import { ProductBox } from '../../common/ProductBox/ProductBox';
+import { Title } from '../../common/Title/Title';
 
-const Component = ({className, children}) => (
-  <div className={clsx(className, styles.root)}>
-    <h2>Products</h2>
-    <ProductBox />
-  </div>
-);
+const Component = ({ className, products }) => {
+  console.log('products', products);
+  return (
+    <div className={clsx(className, styles.root)}>
+      <div className='container py-5 '>
+        {/* Title  */}
+        <div className='row '>
+          <div className='col-10 mx-auto col-sm-6  '>
+            <div className='d-flex align-items-center justify-content-center'>
+              <Title title="Our" dominant="Shop"/>
+            </div>
+          </div>
+        </div>
+        {/*  Title End */}
+        <div className='container py-5 '>
+          <div  className='row justify-content-center '>
+            <div className={`${styles.wrapper}`}>
+              {products.map(el => (
+                <ProductBox key={el.id} {...el} />
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 Component.propTypes = {
-  children: PropTypes.node,
+  products: PropTypes.array,
   className: PropTypes.string,
 };
 
-// const mapStateToProps = state => ({
-//   someProp: reduxSelector(state),
-// });
+const mapStateToProps = state => ({
+  products: getAll(state),
+});
 
 // const mapDispatchToProps = dispatch => ({
 //   someAction: arg => dispatch(reduxActionCreator(arg)),
 // });
 
-// const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
+const ProductsContainer = connect(mapStateToProps)(Component);
 
 export {
-  Component as Products,
-  // Container as Products,
+
+  ProductsContainer as Products,
   Component as ProductsComponent,
 };
