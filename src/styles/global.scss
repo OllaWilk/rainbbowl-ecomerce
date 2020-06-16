@@ -1,1 +1,26 @@
-@import "settings.scss";
+@import "./settings.scss";
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Sacramento&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+  font-family: $text-main;
+  margin: 0;
+  padding: 0;
+  background-color: $lightgrey;
+  font-size:$base-font-size;
+  line-height: 1.7;
+  color: $darkrey;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+

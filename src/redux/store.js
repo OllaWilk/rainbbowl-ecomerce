@@ -1,13 +1,13 @@
-import {combineReducers, createStore, applyMiddleware} from 'redux';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
 import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 import { initialState } from './initialState';
-import { reducer as postsReducer } from './postsRedux';
+// import { reducer as productsReducer } from './productsRedux';
 
 // define reducers
 const reducers = {
-  posts: postsReducer,
+  // product: productsReducer,
 };
 
 // add blank reducers for initial state properties without reducers

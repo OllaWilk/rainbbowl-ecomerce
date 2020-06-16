@@ -1,1 +1,56 @@
-$base-size: 12px;
+// VARIABLES
+//colors
+$black: #000;
+$white: #ffffff;
+
+$lightgrey: #F2F2F2;
+$midgrey: #E6E6E6;
+$darkrey: #25282A;
+$whiteSmoke: whitesmoke;
+$orange: #f6942e;
+
+// text
+
+$base-padding: 45px;
+$base-font-size: 16px;
+$font-size-header: 35px;
+$font-size-title: 20px;
+
+$font-weight-bold: 550;
+
+$text-main: 'Montserrat', sans-serif;
+$text-logo: 'Sacramento', cursive;
+
+//Media breakpoints
+
+$laptop-breakpoint: 1200px;
+$tablet-breakpoint: 768px;
+$mobile-breakpoint: 425px;
+
+//transition values
+
+$transition: all 1s;
+$background-color-transition: 250ms;
+$color-transition: 250ms;
+$border-color-transition: 250ms;
+
+%hoverAnimation {
+    transition: background-color $background-color-transition linear, color $color-transition linear,
+    border-color $border-color-transition linear;
+
+    transform: translate(0, 0);
+}
+
+// transform
+
+@mixin box-flex() {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+@mixin center-position() {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
