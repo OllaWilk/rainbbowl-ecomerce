@@ -1,0 +1,65 @@
+@import '../../../styles/settings.scss';
+
+.root {
+
+    .productDetails {
+          @media (max-width: $tablet-breakpoint) {
+            justify-content: center;
+          }
+          @media (max-width: $mobile-breakpoint) {
+            justify-content: center;
+          }
+
+          .productDetailsImgContainer {
+            position: relative;
+            margin-right: 20px;
+            border: 10px solid $white;
+            border-radius: 5px;
+            .singleItem {
+                padding: 2px ;
+
+                .imgContainer {
+                    position: relative;
+                    overflow: hidden;
+
+                    .storeImg {
+                        height: 500px;
+                        object-fit: cover;
+                    }
+
+                    .storeItemIcon {
+                        padding: 20px 0 0 40px;
+                        cursor: pointer;
+                        background: $orange;
+                        font-size: 30px;
+                        font-family: $text-logo;
+                        color: $white;
+                        transition: all 1s ease-in-out;
+                        display: flex;
+                        &:hover {
+                            background-color: $white;
+                            color: $orange;
+                        }
+                    }
+                }
+            }
+        }
+
+        .title {
+            font-size: $font-size-header;
+            font-weight: $font-weight-bold;
+        }
+
+        .titleDominant {
+            color: $orange;
+            font-size: 4rem;
+            font-weight: 600;
+            font-family: $text-logo;
+            margin: 0 0 0 20px;
+        }
+
+        .btnBack {
+            margin-left: 10px;
+        }
+    }
+}
