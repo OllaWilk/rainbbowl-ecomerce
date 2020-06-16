@@ -7,6 +7,9 @@ import { CssBaseline } from '@material-ui/core';
 import { MainLayout } from './components/layout/MainLayout/MainLayout';
 import { Homepage } from './components/views/Homepage/Homepage';
 
+import './styles/bootstrap.scss';
+import './styles/global.scss';
+
 const theme = createMuiTheme({
   palette: {
     primary: { main: '#ffb8b8' },
