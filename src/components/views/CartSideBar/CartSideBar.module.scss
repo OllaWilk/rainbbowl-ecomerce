@@ -1,0 +1,36 @@
+@import '../../../styles/settings.scss';
+
+.root {
+
+    // .cart {
+
+    //     position: fixed;
+    //     // transform: translateX(-20rem);
+    //     width: 30rem;
+    //     background-color: $white;
+    //     height: 100vh;
+    //     right: 0;
+    //     z-index: -5;
+    //     padding: 100px 30px;
+    //     @media (max-width: $mobile-breakpoint) {
+    //       width: 100%;
+    //     }
+    // }
+
+    .iconbascet {
+        color: $black;
+        font-size: 20px;
+        font-weight: bold;
+        transition: all 1s ease-in-out;
+        &:hover {
+            transform: scale(1.5);
+              color: $black;
+        }
+
+        .bascet {
+          color: $black;
+          margin-right: 5px;
+          cursor: pointer;
+        }
+    }
+}

@@ -15,6 +15,7 @@ import { Logo } from '../../common/Logo/Logo';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
+import { CartSideBar } from '../../views/CartSideBar/CartSideBar';
 
 
 const Component = ({ className }) => (
@@ -67,6 +68,7 @@ const Component = ({ className }) => (
               </Link>
             </li>
             <li >
+              <CartSideBar />
             </li>
           </ul>
         </div>
