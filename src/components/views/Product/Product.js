@@ -11,10 +11,29 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
 import { NotFound } from '../../views/NotFound/NotFound';
 import { Button } from '../../common/Button/Button';
-
+import { AmountWidget } from '../../common/AmountWidget/AmountWidget';
 
 const Component = ({ className, product }) => {
   const {  title, description, images, price } = product;
+
+  const [value, setValue] = React.useState(1);
+
+  const handleAdd = () => {
+    if (value >= 1 &&  value < 10) {
+      setValue(value + 1);
+    }
+  };
+
+  const handleRemove = () => {
+    if (value <= 10 && value > 1 ) {
+      setValue(value - 1);
+    }
+  };
+
+  const onChange = ({ target }) => {
+    console.log('target', target);
+  };
+
 
   return (
     product && product.id ? (
@@ -53,6 +72,7 @@ const Component = ({ className, product }) => {
                   { description }
                 </p>
                 <div className='d-flex'>
+                  <AmountWidget value={value} onAdd={handleAdd} onRemove={handleRemove} onChange={onChange} />
                   <Button className={styles.btnBack} link={`/`} buttonTitle="buy" />
                   <Button className={styles.btnBack} link={`/`} buttonTitle="back" />
                 </div>
