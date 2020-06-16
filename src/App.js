@@ -16,8 +16,8 @@ import './styles/global.scss';
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: '#ffb8b8' },
-    secondary: { main: '#67e6dc' },
+    primary: { main: '#f6942e' },
+    secondary: { main: '#E6E6E6' },
   },
 });
 

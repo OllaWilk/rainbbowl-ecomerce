@@ -21,7 +21,7 @@ const Component = ({ className, cart }) => {
           icon={faCartPlus}
           className={styles.bascet}
         />
-        <span>{cart.products.length}</span>
+        <span>{cart.amount}</span>
       </div>
       <div className={styles.cartOpen}>
         <div className={`${styles.cart} cart sm-12 `}>

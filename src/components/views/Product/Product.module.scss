@@ -60,6 +60,9 @@
 
         .btnBack {
             margin-left: 10px;
+            &:hover {
+                background-color: transparent;;
+            }
         }
     }
 }
