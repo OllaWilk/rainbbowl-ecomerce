@@ -1,0 +1,53 @@
+@import '../../../styles/settings.scss';
+
+.root {
+    .footerMenu {
+        background-color: $darkrey;
+        padding: 3rem 0;
+
+        .menuWrapper {
+        color: $white;
+        h6 {
+            color: $orange;
+            // font-weight: bold;
+            text-transform: uppercase;
+            margin: 0 0 1rem 0;
+        }
+
+        ul {
+            margin: 0 0 1.5rem 0;
+            padding: 0;
+            list-style: none;
+            li {
+                a {
+                    line-height: 30px;
+                    color: $white;
+                    &:hover {
+                    color: $orange;
+                    text-decoration: none;
+                    }
+            }
+            }
+        }
+
+        i {
+            margin-right: 1rem;
+        }
+        }
+    }
+
+    .bottomBar {
+        background-color: $black;
+
+        :global(.container) > :global(.row) {
+        height: 95px;
+        }
+
+        .copyright {
+            margin: 0;
+            color: $lightgrey;
+            font-size: 14px;
+            line-height: 26px;
+        }
+    }
+}
