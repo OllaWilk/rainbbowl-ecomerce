@@ -9,6 +9,7 @@ import { Homepage } from './components/views/Homepage/Homepage';
 import { Product } from './components/views/Product/Product';
 import { About } from './components/views/About/About';
 import { Contact } from './components/views/Contact/Contact';
+import { Cart } from './components/views/Cart/Cart';
 import { NotFound } from './components/views/NotFound/NotFound';
 
 import './styles/bootstrap.scss';
@@ -33,6 +34,7 @@ function App() {
               <Route exact path='/products/:id' component={Product} />
               <Route exact path='/about' component={About} />
               <Route exact path='/contact' component={Contact} />
+              <Route exact path='/cart' component={Cart} />
               <Route path='*' component={NotFound} />
             </Switch>
           </MainLayout>

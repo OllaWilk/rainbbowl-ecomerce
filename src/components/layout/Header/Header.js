@@ -37,6 +37,9 @@ const Component = ({ className }) => (
               <li>
                 <Link to={'/contact'}>Contact</Link>
               </li>
+              <li>
+                <Link to={'/cart'}>Cart</Link>
+              </li>
             </ul>
           </div>
         </div>

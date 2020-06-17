@@ -6,9 +6,9 @@ import clsx from 'clsx';
 import styles from './Button.module.scss';
 
 const Component = ({className, children, link, buttonTitle}) => (
-  <div className={clsx(className, styles.root)}>
+  <a className={clsx(className, styles.root)}>
     <a href={ link } className={`btn btn-outline-secondary text-uppercase ${styles.btnAbaut} `}>{ buttonTitle }</a>
-  </div>
+  </a>
 );
 
 Component.propTypes = {

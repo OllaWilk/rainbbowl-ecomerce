@@ -13,6 +13,8 @@ import { Link } from 'react-router-dom';
 
 const Component = ({ className, title, images, price, id, addProduct }) => {
 
+  const [value] = React.useState(1);
+
   return (
     <div className={clsx(className, styles.root)}>
       <div className={`card ${styles.singleItem}`} >
@@ -23,7 +25,9 @@ const Component = ({ className, title, images, price, id, addProduct }) => {
           <span className={styles.storeItemIcon }>
             <FontAwesomeIcon
               icon={faShoppingCart}
-              onClick={() => addProduct(title, images, price )}
+              onClick={() => addProduct({
+                id, title, price, images, value,
+              })}
             />
           </span>
         </div>
@@ -31,7 +35,7 @@ const Component = ({ className, title, images, price, id, addProduct }) => {
           <div className='card-text d-flex justify-content-between align-items-cente '>
             <FontAwesomeIcon className={styles.iconHart} icon={faHeart} />
             <h5 className={ styles.itemTitle }>{ title }</h5>
-            <h5 className='store-item-value'><strong>$ {price} </strong></h5>
+            <h5 className='store-item-value'><strong>$ {price * value} </strong></h5>
           </div>
         </div>
       </div>
@@ -56,7 +60,7 @@ const mapDispatchToProps = dispatch => ({
   addProduct: (product, amount) => dispatch(addProduct(product, amount)),
 });
 
-const Container = connect(null, mapDispatchToProps)(Component);
+const Container = connect( null, mapDispatchToProps)(Component);
 
 export {
   // Component as ProductBox,
