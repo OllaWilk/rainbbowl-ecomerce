@@ -98,7 +98,19 @@ export const initialState = {
     },
   },
   cart: {
-    products: [],
-    amount: 0,
+    products: [
+      {
+        id: '3',
+        title: 'Rainbbow jelly',
+        description:  'Lorem ipsum dolor amet offal butcher quinoa sustainable gastropub, echo park actually green juice sriracha paleo. Brooklyn sriracha semiotics, DIY coloring book mixtape craft beer sartorial hella blue bottle. Tote bag wolf authentic try-hard put a bird on it mumblecore. Unicorn lumbersexual master cleanse blog hella VHS, vaporware sartorial church-key cardigan single-origin coffee lo-fi organic asymmetrical. Taxidermy semiotics celiac stumptown scenester normcore, ethical helvetica photo booth gentrify.',
+        images: '/img/rainbowJelly2.jpg',
+        imgCart: '/img/smallImg/rainbowJelly2Small.jpg',
+        flavour: 'fruit',
+        price: 8,
+        inCart: false,
+      },
+    ],
+    amount: 1,
+    total: 8,
   },
 };
