@@ -1,4 +1,9 @@
 @import '../../../styles/settings.scss';
 
-// .root {
-// }
+.root {
+
+    .order {
+        border-left: 1px solid $black;
+        padding: 40px;
+    }
+}

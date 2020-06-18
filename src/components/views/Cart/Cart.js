@@ -23,14 +23,14 @@ const Component = ({ className }) => {
             {/* Order*/}
             <div className={`${styles.order} col-10 max-auto col-md-6 my-5 `}>
               <div className='d-flex align-items-center '>
-                <Title name="Order" />
+                <Title title="your" dominant="Order" />
               </div>
               <div className='my-4 text-muted ' >
 
               </div>
               <div className='d-flex'>
-                <Button link={`/product`} buttonTitle="order" />
-                <Button className={styles.btnBack} link={`/ `} buttonTitle='back' />
+                <Button link={`/product`} buttonTitle="order" ></Button>
+                <Button className={styles.btnBack} link={`/ `} buttonTitle='back' ></Button>
               </div>
             </div>
           </div>

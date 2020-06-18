@@ -2,20 +2,20 @@
 
 .root {
 
-    // .cart {
+    .cart {
 
-    //     position: fixed;
-    //     // transform: translateX(-20rem);
-    //     width: 30rem;
-    //     background-color: $white;
-    //     height: 100vh;
-    //     right: 0;
-    //     z-index: -5;
-    //     padding: 100px 30px;
-    //     @media (max-width: $mobile-breakpoint) {
-    //       width: 100%;
-    //     }
-    // }
+        position: fixed;
+        // transform: translateX(-20rem);
+        width: 30rem;
+        background-color: $white;
+        height: 100vh;
+        right: 0;
+        z-index: -5;
+        padding: 100px 30px;
+        @media (max-width: $mobile-breakpoint) {
+          width: 100%;
+        }
+    }
 
     .iconbascet {
         color: $black;

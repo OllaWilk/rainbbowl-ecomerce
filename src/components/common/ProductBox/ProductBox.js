@@ -14,6 +14,9 @@ import { Link } from 'react-router-dom';
 const Component = ({ className, title, images, price, id, addProduct }) => {
 
   const [value] = React.useState(1);
+  // const onChange = ({ target }) => {
+  //   setValue(parseInt(target.value));
+  // };
 
   return (
     <div className={clsx(className, styles.root)}>
@@ -26,7 +29,8 @@ const Component = ({ className, title, images, price, id, addProduct }) => {
             <FontAwesomeIcon
               icon={faShoppingCart}
               onClick={() => addProduct({
-                id, title, price, images, value,
+                id, title, price, images,
+                value,
               })}
             />
           </span>
