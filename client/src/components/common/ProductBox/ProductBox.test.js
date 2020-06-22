@@ -5,7 +5,7 @@ import { ProductBoxComponent } from './ProductBox';
 const mockProps = {
   title: 'test title',
   price: 5,
-  images: ['abc.jpg'],
+  images: 'abc.jpg',
 };
 
 describe('Component ProductBox', () => {

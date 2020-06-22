@@ -39,27 +39,27 @@ class Component extends React.Component {
   render() {
     const { className, cart } = this.props;
 
-    // const [isCart, setCart] = React.useState(false);
+     // const [isCart, setCart] = React.useState(false);
 
 
 
-    return (
-      <div className={clsx(className, styles.root)}>
+  return (
+    <div className={clsx(className, styles.root)}>
 
-        <Button className={styles.iconbascet} onClick={() => this.toggleCart()}>
-          {/* <Button className={styles.iconbascet} onClick={toggleCart} > */}
-          <FontAwesomeIcon icon={faCartPlus} className={styles.bascet} />
-          {/* <span>${cart.total}</span> */}
-          <span>{`$ ${cart.total} (${parseInt(cart.amount)})`}</span>
+      <Button className={styles.iconbascet} onClick={() => this.toggleCart()}>
+      {/* <Button className={styles.iconbascet} onClick={toggleCart} > */}
+        <FontAwesomeIcon icon={faCartPlus} className={styles.bascet} />
+        {/* <span>${cart.total}</span> */}
+        <span>{`$ ${cart.total} (${parseInt(cart.amount)})`}</span>
 
-        </Button>
-        {/* {isCart ? <CartTopMenu /> : ''} */}
-        {this.state.isCart ? <CartTopMenu /> : ''}
+      </Button>
+      {/* {isCart ? <CartTopMenu /> : ''} */}
+      {this.state.isCart ? <CartTopMenu /> : ''}
 
-      </div>
-    );
-  }
-}
+    </div>
+  );
+  };
+};
 
 
 
@@ -74,7 +74,6 @@ const mapDispatchToProps = dispatch => ({
 const Container = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
-  //
   Container as TopBarBascet,
   Component as TopBarBascetComponent,
 };

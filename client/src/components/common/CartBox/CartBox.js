@@ -15,7 +15,7 @@ const Component = ({ className, cart, changeAmount, addNotes, removeProduct }) =
   return (
     <section className={clsx(className, styles.root)}>
       {cart.products.map(el => (
-        <div key={el.id} className={`${ styles.wrap}  mx-auto `}>
+        <div key={el._id} className={`${ styles.wrap}  mx-auto `}>
           <div className={styles.image} >
             <img className={styles.img} src= { el.images } alt="eloquence" />
           </div>
@@ -25,11 +25,11 @@ const Component = ({ className, cart, changeAmount, addNotes, removeProduct }) =
             </p>
             <div className={` ${styles.cartDesc} d-flex justify-content-between `} >
               <span span id='cart-item-price '>$ { el.price * el.amount} </span>
-              <AmountWidget className={styles.amountWidget} value={el.amount} onChange={e => changeAmount({ id: el.id, amount: parseInt(e.target.value) })} />
+              <AmountWidget className={styles.amountWidget} value={el.amount} onChange={e => changeAmount({ id: el._id, amount: parseInt(e.target.value) })} />
               <div id='cart-item-remove ' className={ styles.cartItemRemove }>
                 <FontAwesomeIcon
                   icon={faTrash}
-                  onClick={() => removeProduct({ id: el.id })}
+                  onClick={() => removeProduct({ id: el._id })}
                 />
               </div>
             </div>
@@ -38,15 +38,13 @@ const Component = ({ className, cart, changeAmount, addNotes, removeProduct }) =
             <textarea
               value={el.notes}
               placeholder="Personalize your product here"
-              onChange={e => addNotes({ id: el.id, notes: e.target.value })}
+              onChange={e => addNotes({ id: el._id, notes: e.target.value })}
               className=' d-flex justify-content-center '
             >
             </textarea>
           </div>
-
         </div>
       ))}
-
     </section>
   );
 };

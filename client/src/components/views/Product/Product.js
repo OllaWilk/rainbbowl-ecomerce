@@ -4,102 +4,115 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { getById } from '../../../redux/productsRedux';
+import { getAll, getRequest, loadProductsRequest } from '../../../redux/productsRedux';
 import { addProduct } from '../../../redux/cartRedux';
 
 import styles from './Product.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faHeart } from '@fortawesome/free-solid-svg-icons';
-import { NotFound } from '../../views/NotFound/NotFound';
 import Button from '@material-ui/core/Button';
 import { AmountWidget } from '../../common/AmountWidget/AmountWidget';
+import { Alert, Progress } from 'reactstrap';
 
-const Component = ({ className, product, addProduct }) => {
-  const {  title, description, images, price } = product;
 
-  const [value, setValue] = React.useState(1);
+class Component extends React.Component {
 
-  // const handleAdd = () => {
-  //   if (value >= 1 &&  value < 10) {
-  //     setValue(value + 1);
-  //   }
-  // };
+  state = {
+    value: 1,
+  }
 
-  // const handleRemove = () => {
-  //   if (value <= 10 && value > 1 ) {
-  //     setValue(value - 1);
-  //   }
-  // };
 
-  const onChange = ({ target }) => {
-    setValue(parseInt(target.value));
+  static propTypes = {
+    className: PropTypes.string,
+    addProduct: PropTypes.func,
+    products: PropTypes.array,
+    request: PropTypes.object,
+    match: PropTypes.shape({
+      params: PropTypes.shape({
+        id: PropTypes.string,
+      }),
+    }),
+    loadProducts: PropTypes.func,
   };
 
+  onChange = ({ target }) => {
+    this.setState({ ...this.state, value: parseInt(target.value) });
+  };
 
-  return (
-    product && product.id ? (
-      <section className={clsx(className, styles.root)}>
-        <div className={`  py-5 `}>
-          <div className='container '>
-            <div className={` ${styles.productDetails} row `}>
-              <div className='col-10 max-auto col-md-6 my-5 align-self-center '>
-                <div className={styles.productDetailsImgContainer}>
-                  <div className={`card ${styles.singleItem}`} >
-                    <div className={styles.imgContainer}>
-                      <img
-                        src={ images }
-                        alt='sweet1'
-                        className={`${styles.storeImg} card-img-top align-items-stretch`}
-                      />
-                      <span className={styles.storeItemIcon }>
-                        <p>
-                          <FontAwesomeIcon icon={faHeart} />
-                            Add to favorites
-                        </p>
-                      </span>
+  componentDidMount() {
+    const { loadProducts } = this.props;
+    loadProducts();
+  }
+
+  render() {
+    const { className, products, addProduct, request, match } = this.props;
+    const { value } = this.state;
+
+    if (request.pending) return <Progress animated color="primary" value={50} />;
+    else if (request.error) return <Alert color="warning">{request.error}</Alert>;
+    else if (!request.success || !products.length) return <Alert color="info">No products</Alert>;
+    else if (request.success)
+
+    return (
+        <section className={clsx(className, styles.root)}>
+          {products.filter(el => el._id === match.params.id).map(product => (
+
+          <div className={`  py-5 `} key={product._id} >
+            <div className='container '>
+              <div className={` ${styles.productDetails} row `}>
+                <div className='col-10 max-auto col-md-6 my-5 align-self-center '>
+                  <div className={styles.productDetailsImgContainer}>
+                    <div className={`card ${styles.singleItem}`} >
+                      <div className={styles.imgContainer}>
+                        <img
+                          src={ product.images }
+                          alt='sweet1'
+                          className={`${styles.storeImg} card-img-top align-items-stretch`}
+                        />
+                        <span className={styles.storeItemIcon }>
+                          <p>
+                            <FontAwesomeIcon icon={faHeart} />
+                              Add to favorites
+                          </p>
+                        </span>
+                      </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <div className='col-10 max-auto col-md-6 my-5 '>
-                <div className='d-flex align-items-center '>
-                  <h2 className={styles.title }>{ title }</h2>
-                  <strong className={styles.titleDominant}>
-                        ${ price }
-                  </strong>
-                </div>
-                <p className='my-4 text-muted ' >
-                  { description }
-                </p>
-                <div className='d-flex'>
-                  <AmountWidget value={value} onChange={onChange} />
-                  <Button className={styles.submit} color="primary" variant="contained" onClick={() => addProduct(product, value)}>Buy</Button>
+                <div className='col-10 max-auto col-md-6 my-5 '>
+                  <div className='d-flex align-items-center '>
+                    <h2 className={styles.title }>{product.title}</h2>
+                    <strong className={styles.titleDominant}>
+                      $ {product.price * value}
+                    </strong>
+                  </div>
+                  <p className='my-4 text-muted ' >
+                    {product.description}
+                  </p>
+                  <div className='d-flex'>
+                    <AmountWidget value={this.state.value} /*onChange={e => this.onChange(e)} */ onChange={this.onChange}/>
+                    <Button className={styles.submit} color="primary" variant="contained"  onClick={() => addProduct(product, value)}>Buy</Button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    ) :
-      (
-        <NotFound />
-      )
-  );
+          ))}
+        </section>
+    );
+  };
 };
 
-Component.propTypes = {
-  product: PropTypes.object,
-  className: PropTypes.string,
-  addProduct: PropTypes.func,
-};
-
-const mapStateToProps = (state, props) => ({
-  product: getById(state, props.match.params.id),
+const mapStateToProps = state => ({
+  products: getAll(state),
+  request: getRequest(state),
 });
 
-const mapDispatchToProps = dispatch => ({
+
+const mapDispatchToProps = (dispatch) => ({
   addProduct: (product, amount) => dispatch(addProduct({ product, amount })),
+  loadProducts: () => dispatch(loadProductsRequest()),
 });
 
 const ProductContainer = connect(mapStateToProps, mapDispatchToProps)(Component);

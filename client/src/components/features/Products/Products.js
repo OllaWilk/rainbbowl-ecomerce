@@ -4,52 +4,66 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { getAll } from '../../../redux/productsRedux.js';
+import { getAll, loadProductsRequest } from '../../../redux/productsRedux.js';
+
 
 import styles from './Products.module.scss';
 import { ProductBox } from '../../common/ProductBox/ProductBox';
 import { Title } from '../../common/Title/Title';
 
-const Component = ({ className, products }) => {
-  console.log('products', products);
-  return (
-    <div className={clsx(className, styles.root)}>
-      <div className='container py-5 '>
-        <div className='row '>
-          <div className='col-10 mx-auto col-sm-6  '>
-            <div className='d-flex align-items-center justify-content-center'>
-              <Title title="Our" dominant="Shop"/>
+class Component extends React.Component {
+
+  static propTypes = {
+    className: PropTypes.string,
+    products: PropTypes.array,
+    loadProducts: PropTypes.func,
+  };
+
+  componentDidMount() {
+    const { loadProducts } = this.props;
+    loadProducts();
+  }
+
+  render() {
+    const { className, products } = this.props;
+    console.log('products', products);
+
+    return (
+      <div className={clsx(className, styles.root)}>
+        <div className='container py-5 '>
+          <div className='row '>
+            <div className='col-10 mx-auto col-sm-6  '>
+              <div className='d-flex align-items-center justify-content-center'>
+                <Title title="Our" dominant="Shop"/>
+              </div>
             </div>
           </div>
-        </div>
-        <div className='container py-5 '>
-          <div  className='row justify-content-center '>
-            <div className={`${styles.wrapper}`}>
-              {products.map(el => (
-                <ProductBox key={el.id} {...el} />
-              ))}
+          <div className='container py-5 '>
+            <div  className='row justify-content-center '>
+              <div className={`${styles.wrapper}`}>
+                {products.map(el => (
+                  <ProductBox key={el._id} {...el} />
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  );
+    );
+  };
 };
 
-Component.propTypes = {
-  products: PropTypes.array,
-  className: PropTypes.string,
-};
+
 
 const mapStateToProps = (state) => ({
   products: getAll(state),
 });
 
-// const mapDispatchToProps = dispatch => ({
-//   someAction: arg => dispatch(reduxActionCreator(arg)),
-// });
+const mapDispatchToProps = dispatch => ({
+  loadProducts: () => dispatch(loadProductsRequest()),
+});
 
-const ProductsContainer = connect(mapStateToProps)(Component);
+const ProductsContainer = connect(mapStateToProps, mapDispatchToProps)(Component);
 
 export {
 
