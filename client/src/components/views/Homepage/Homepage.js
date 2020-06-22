@@ -20,6 +20,5 @@ Component.propTypes = {
 
 export {
   Component as Homepage,
-
   Component as HomepageComponent,
 };

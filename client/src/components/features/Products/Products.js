@@ -15,7 +15,7 @@ class Component extends React.Component {
 
   static propTypes = {
     className: PropTypes.string,
-    products: PropTypes.array,
+    products: PropTypes,
     loadProducts: PropTypes.func,
   };
 
@@ -50,8 +50,8 @@ class Component extends React.Component {
         </div>
       </div>
     );
-  };
-};
+  }
+}
 
 
 

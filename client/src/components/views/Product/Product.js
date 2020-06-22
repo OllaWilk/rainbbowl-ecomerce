@@ -53,56 +53,55 @@ class Component extends React.Component {
     else if (!request.success || !products.length) return <Alert color="info">No products</Alert>;
     else if (request.success)
 
-    return (
+      return (
         <section className={clsx(className, styles.root)}>
           {products.filter(el => el._id === match.params.id).map(product => (
-
-          <div className={`  py-5 `} key={product._id} >
-            <div className='container '>
-              <div className={` ${styles.productDetails} row `}>
-                <div className='col-10 max-auto col-md-6 my-5 align-self-center '>
-                  <div className={styles.productDetailsImgContainer}>
-                    <div className={`card ${styles.singleItem}`} >
-                      <div className={styles.imgContainer}>
-                        <img
-                          src={ product.images }
-                          alt='sweet1'
-                          className={`${styles.storeImg} card-img-top align-items-stretch`}
-                        />
-                        <span className={styles.storeItemIcon }>
-                          <p>
-                            <FontAwesomeIcon icon={faHeart} />
-                              Add to favorites
-                          </p>
-                        </span>
+            <div className={`  py-5 `} key={product._id} >
+              <div className='container '>
+                <div className={` ${styles.productDetails} row `}>
+                  <div className='col-10 max-auto col-md-6 my-5 align-self-center '>
+                    <div className={styles.productDetailsImgContainer}>
+                      <div className={`card ${styles.singleItem}`} >
+                        <div className={styles.imgContainer}>
+                          <img
+                            src={ product.images }
+                            alt='sweet1'
+                            className={`${styles.storeImg} card-img-top align-items-stretch`}
+                          />
+                          <span className={styles.storeItemIcon }>
+                            <p>
+                              <FontAwesomeIcon icon={faHeart} />
+                                Add to favorites
+                            </p>
+                          </span>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
 
-                <div className='col-10 max-auto col-md-6 my-5 '>
-                  <div className='d-flex align-items-center '>
-                    <h2 className={styles.title }>{product.title}</h2>
-                    <strong className={styles.titleDominant}>
-                      $ {product.price * value}
-                    </strong>
-                  </div>
-                  <p className='my-4 text-muted ' >
-                    {product.description}
-                  </p>
-                  <div className='d-flex'>
-                    <AmountWidget value={this.state.value} /*onChange={e => this.onChange(e)} */ onChange={this.onChange}/>
-                    <Button className={styles.submit} color="primary" variant="contained"  onClick={() => addProduct(product, value)}>Buy</Button>
+                  <div className='col-10 max-auto col-md-6 my-5 '>
+                    <div className='d-flex align-items-center '>
+                      <h2 className={styles.title }>{product.title}</h2>
+                      <strong className={styles.titleDominant}>
+                        $ {product.price * value}
+                      </strong>
+                    </div>
+                    <p className='my-4 text-muted ' >
+                      {product.description}
+                    </p>
+                    <div className='d-flex'>
+                      <AmountWidget value={this.state.value} /*onChange={e => this.onChange(e)} */ onChange={this.onChange}/>
+                      <Button className={styles.submit} color="primary" variant="contained"  onClick={() => addProduct(product, value)}>Buy</Button>
+                    </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
           ))}
         </section>
-    );
-  };
-};
+      );
+  }
+}
 
 const mapStateToProps = state => ({
   products: getAll(state),
