@@ -1,14 +1,14 @@
 exports.getCart = async (req, res) => {
     console.log('req', req);
-
     try {
-        if(!req.session || !req.session.cart || !req.session.cart.products) res.json([]);
-        else if (!req.session.cart.products.length) res.json([]);
-        else res.json(req.session.cart.products);
-    }
-    catch (err) {
+        const result = await Post
+          .find()
+          .sort({ date: -1 });
+        if (!result) res.status(404).json({ post: 'Not found' });
+        else res.json(result);
+      } catch (err) {
         res.status(500).json(err);
-    }
+      }
 };
 
 exports.saveCart = async (req, res) => {

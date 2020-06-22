@@ -7,4 +7,3 @@ router.route('/products').get(ProductController.getAll);
 router.route('/products/:id').get(ProductController.getOne);
 
 module.exports = router;
-

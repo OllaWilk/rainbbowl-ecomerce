@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import clsx from 'clsx';
 
 import { connect } from 'react-redux';
-import { getCart, sendOrder } from '../../../redux/cartRedux.js';
+import { getCart, sendOrderRequest } from '../../../redux/cartRedux.js';
 
 import styles from './OrderSummary.module.scss';
 
@@ -34,6 +34,21 @@ const Component = ({ className, cart, sendOrder}) => {
     setClient({ ...client, [name]: value });
   };
 
+  const submitOrder = (e, cart, client) => {
+    e.preventDefault();
+
+    const payload = {
+      cart: {
+        products: cart.products,
+        amount: cart.amount,
+        total: cart.total,
+      },
+      client: client,
+    };
+
+    sendOrder(payload);
+  };
+
 
   return (
     <section className={clsx(className, styles.root)}>
@@ -49,8 +64,7 @@ const Component = ({ className, cart, sendOrder}) => {
               <Title title="your" dominant="Order" className='d-flex align-items-center ' />
               <div className='my-4 text-muted ' >
                 <BillingDetailsForm onChange={handleChange} client={client}>
-                  <Button color="primary" variant="contained" onClick={() => sendOrder({ cart: cart, client: client})}>Order</Button>
-                </BillingDetailsForm>
+                <Button color="primary" variant="contained" onClick={e => submitOrder(e, cart, client)}>Order</Button>                </BillingDetailsForm>
               </div>
             </div>
           </div>
@@ -71,7 +85,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  sendOrder: (cart, client) => dispatch(sendOrder(cart, client)),
+  sendOrder: (order) => dispatch(sendOrderRequest(order)),
 });
 
 const OrderSummaryContainer = connect(mapStateToProps, mapDispatchToProps)(Component);

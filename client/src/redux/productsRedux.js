@@ -57,8 +57,8 @@ const initialState = {
 
 /* reducer */
 export const reducer = (statePart = initialState, action = {}) => {
-  console.log('state', statePart);
-  console.log('action', action);
+  // console.log('state', statePart);
+  // console.log('action', action);
   switch (action.type) {
     case LOAD_PRODUCTS:
       return { ...statePart, data: [...action.payload] };
