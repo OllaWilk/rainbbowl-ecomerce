@@ -1,34 +1,4 @@
 @import '../../../styles/settings.scss';
 
-.root {
-
-    .amountWidget {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-
-        .btnAbaut {
-            height: 32px;
-            width: 32px;
-            // border: 1px solid $background-darkrey;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size:30px;
-            margin: 0 10px;
-            &:hover {
-                // background: $black;
-                color: $orange;
-                border: $orange;
-            }
-
-            .input {
-                height: 38px;
-                width: 25px;
-                margin: 0 20px;
-            }
-        }
-    }
-}
+// .root {
+// }
