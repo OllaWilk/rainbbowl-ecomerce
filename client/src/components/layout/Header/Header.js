@@ -15,7 +15,8 @@ import { Logo } from '../../common/Logo/Logo';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {  faUser, faHeart } from '@fortawesome/free-solid-svg-icons';
-import { CartSideBar } from '../../views/CartSideBar/CartSideBar';
+// import { CartSideBar } from '../../views/CartSideBar/CartSideBar';
+import { TopBarBascet } from '../../layout/TopBarBascet/TopBarBascet';
 
 
 const Component = ({ className }) => (
@@ -71,7 +72,8 @@ const Component = ({ className }) => (
               </Link>
             </li>
             <li >
-              <CartSideBar />
+              {/* <CartSideBar /> */}
+              <TopBarBascet />
             </li>
           </ul>
         </div>

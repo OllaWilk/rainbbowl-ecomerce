@@ -9,7 +9,7 @@ import { Title } from '../../common/Title/Title';
 const Component = ({ className }) => (
   <section className={clsx(className, styles.root)}>
     <div className='container display-flex '>
-      <Title title='Quo vadis  ' dominant='?' />
+      <Title title='Not found  ' dominant='sorry' />
       <Logo />
     </div>
   </section>
