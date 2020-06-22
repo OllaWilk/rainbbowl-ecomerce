@@ -1,5 +1,5 @@
-// import axios from "axios";
-// import { API_URL } from '../config';
+import axios from "axios";
+import { API_URL } from '../config';
 
 /* selectors */
 export const getCart = ({ cart }) => cart;
@@ -42,10 +42,25 @@ export const loadCartRequest = () => {
     dispatch(loadCart(cart));
   };
 };
-
 export const saveCartRequest = (cart) => {
   return () => {
     localStorage.setItem('cart', JSON.stringify(cart));
+  };
+};
+
+export const sendOrderRequest = (order) => {
+  return async dispatch => {
+
+    dispatch(startRequest());
+
+    try {
+      let res = await axios.post(`${API_URL}/order`, order);
+      dispatch(sendOrder(res));
+      dispatch(endRequest());
+    }
+    catch (err) {
+      dispatch(errorRequest());
+    }
   };
 };
 
