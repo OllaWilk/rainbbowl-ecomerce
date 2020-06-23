@@ -21,14 +21,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 /* SERVE STATIC FILES */
-app.use(express.static(path.join(__dirname + '/client/build')));
+app.use(express.static(path.join(__dirname, '/client/build')));
 
 /* API ENDPOINTS */
 app.use('/api', productsRoutes);
 app.use('/api', require('./routes/cart.routes'));
 
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname + '/client/build/index.html'));
+    res.sendFile(path.join(__dirname, '/client/build/index.html'));
 });
 
 app.use((req, res) => {
