@@ -26,7 +26,6 @@ app.use(express.static(path.join(__dirname + '/client/build')));
 /* API ENDPOINTS */
 app.use('/api', productsRoutes);
 app.use('/api', require('./routes/cart.routes'));
-// app.use('/api', require(cartRoutes));
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/client/build/index.html'));
@@ -37,9 +36,9 @@ app.use((req, res) => {
 });
 
 /* MONGOOSE */
-process.env.NODE_ENV === 'production' ?
+// process.env.NODE_ENV === 'production' ?
 mongoose.connect(`mongodb+srv://ola:ola@cluster0-z3jtx.mongodb.net/rainbbowl-ecommerce?retryWrites=true&w=majority`, { useNewUrlParser: true, useUnifiedTopology: true })
-: mongoose.connect('mongodb://localhost:27017/shopDB', { useNewUrlParser: true, useUnifiedTopology: true });
+// : mongoose.connect('mongodb://localhost:27017/shopDB', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 
