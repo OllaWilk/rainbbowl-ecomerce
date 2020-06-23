@@ -1,41 +1,28 @@
 exports.getCart = async (req, res) => {
-  console.log('req', req);
+    console.log('req', req);
 
-  try {
-      if(!req.session || !req.session.cart || !req.session.cart.products) res.json([]);
-      else if (!req.session.cart.products.length) res.json([]);
-      else res.json(req.session.cart.products);
-  }
-  catch (err) {
-      res.status(500).json(err);
-  }
+    try {
+        if(!req.session || !req.session.cart || !req.session.cart.products) res.json([]);
+        else if (!req.session.cart.products.length) res.json([]);
+        else res.json(req.session.cart.products);
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
 };
-
-// exports.getCart = async (req, res) => {
-
-//   try {
-//     const result = await Cart
-//       .find()
-//       .sort({ date: -1 });
-//     if (!result) res.status(404).json({ product: 'Not found' });
-//     else res.json(result);
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// };
 
 exports.saveCart = async (req, res) => {
 
-  try {
-      const { products } = req.body;
+    try {
+        const { products } = req.body;
 
-      req.session.cart = {
-          products: products,
-      };
-      req.session.save();
-      res.json(products);
-  }
-  catch (err) {
-      res.status(500).json(err);
-  }
+        req.session.cart = {
+            products: products,
+        };
+        req.session.save();
+        res.json(products);
+    }
+    catch (err) {
+        res.status(500).json(err);
+    }
 };

@@ -61,7 +61,7 @@ export const sendOrderRequest = (order) => {
     dispatch(startRequest());
 
     try {
-      let res = await axios.post(`${API_URL}/order`, order);
+      let res = await axios.post(`${API_URL}/cart`, order);
       dispatch(sendOrder(res));
       dispatch(endRequest());
       localStorage.removeItem('cart');
